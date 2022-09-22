@@ -1,6 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
-import SearchBar from './SearchBar';
+import logo from "./logo.svg";
+import "./App.css";
+import SearchBar from "./SearchBar";
 import LatLonData from "./latLonData";
 function App() {
   return (
@@ -18,9 +18,8 @@ function App() {
         >
           Learn React
         </a>
-        <LatLonData />
       </header>
-      <SearchBar/>
+      <SearchBar />
     </div>
   );
 }

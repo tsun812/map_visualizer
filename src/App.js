@@ -1,7 +1,7 @@
-import logo from "./logo.svg";
-import "./App.css";
+import logo from './logo.svg';
+import './App.css';
+import SearchBar from './SearchBar';
 import LatLonData from "./latLonData";
-
 function App() {
   return (
     <div className="App">
@@ -20,6 +20,7 @@ function App() {
         </a>
         <LatLonData />
       </header>
+      <SearchBar/>
     </div>
   );
 }

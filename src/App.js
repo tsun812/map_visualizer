@@ -1,14 +1,17 @@
 import logo from "./logo.svg";
 import "./App.css";
 import SearchBar from "./SearchBar";
-import LatLonData from "./latLonData";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import useAppState from "./useAppState";
 import Map from "./map";
+import { MapContainer } from "react-leaflet";
 function App() {
+  const { state, setLatLon } = useAppState();
+  console.log(state.lat);
   return (
     <div className="App">
       <SearchBar />
-      <Map />
+      {/* <MapContainer /> */}
+      <Map lat={state.lat} long={state.long} />
     </div>
   );
 }

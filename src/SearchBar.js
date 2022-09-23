@@ -1,6 +1,6 @@
 import './SearchBar.css';
 import search from './search.svg';
-function SearchBar() {
+function SearchBar(props) {
     
     const myAPIKey = "c025357841d84d2d85b14349d9b1231f";
     
@@ -15,11 +15,16 @@ function SearchBar() {
         const geocodingUrl =  `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(address)}&apiKey=${myAPIKey}`;
         fetch(geocodingUrl).then(result => result.json())
             .then(featureCollection => {
-                if (featureCollection.features.length === 0) {
-                    document.getElementById("status").textContent = "The address is not found";
+                if (featureCollection.statusCode == 400) {
                     return;
                 }
-                console.log(featureCollection);
+                if (featureCollection.features.length === 0) {
+                    return;
+                }
+                props.passChildData(featureCollection.features);
+            })
+            .catch((err) => {
+                return;
             });
     }
     return (

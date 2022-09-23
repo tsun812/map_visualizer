@@ -1,0 +1,29 @@
+.calculator {
+    display: flex;
+    padding: 30px;
+
+
+    border: 1px solid black;
+    
+}
+.select {
+    padding: 5px 10px;
+    border-left: 2px solid #124E78;
+    margin-right: 200px;
+}
+.selectTitle {
+    font-weight: 600;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.selectInfo {
+    font-size: 12px;
+    color: #555;
+    font-weight: 400;
+}
+
+.selectLatLong > span {
+    font-weight: 600;
+}

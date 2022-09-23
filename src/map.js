@@ -1,6 +1,6 @@
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { useMap } from "react-leaflet/hooks";
-
+import RoutingMachine from "./RoutineMachine";
 function MyComponent(props) {
   const map = useMap();
   console.log("map center:", map.getCenter());
@@ -28,6 +28,7 @@ export default function Map(props) {
           A pretty CSS3 popup. <br /> Easily customizable.
         </Popup>
       </Marker>
+      <RoutingMachine source={props.source} destination={props.destination} />
     </MapContainer>
   );
 }

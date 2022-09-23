@@ -6,7 +6,7 @@ function NavBar() {
         <div className="navBar">
             <img src={logo} className="logo" alt="logo" />
             <div className='title'>
-                MAP
+                Coordinect
             </div>
         </div>
     )

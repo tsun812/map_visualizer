@@ -1,15 +1,23 @@
 .calculator {
     display: flex;
-    padding: 30px;
+    align-items: center;
+    justify-content: space-between  ;
 
-
-    border: 1px solid black;
+    padding: 30px 40px;
+    height: 60px;
+    /* border: 1px solid black; */
+    border-bottom: 1px solid #cfcfcf;
     
 }
+.selectWrapper {
+    display: flex;
+}
+
 .select {
     padding: 5px 10px;
     border-left: 2px solid #124E78;
-    margin-right: 200px;
+    margin-right: 100px;
+    max-width: 360px;
 }
 .selectTitle {
     font-weight: 600;
@@ -24,6 +32,32 @@
     font-weight: 400;
 }
 
+.distanceInfo {
+    font-size: 28px;
+    font-weight: 200;
+}
+
+.distanceInfo > span {
+    font-weight: 400;
+    color:#124E78;
+}
+
 .selectLatLong > span {
     font-weight: 600;
+}
+
+.resetButton {
+    height: 40px;
+    width: 100px;
+    background: white;
+    border: 1px solid #124E78;
+    color: #124E78;
+    border-radius: 4px;
+
+}
+
+.resetButton:hover {
+    background: #124E78;
+    color: white;
+    cursor: pointer;
 }

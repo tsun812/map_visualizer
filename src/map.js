@@ -1,4 +1,10 @@
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import {
+  MapContainer,
+  Marker,
+  Popup,
+  TileLayer,
+  Polyline,
+} from "react-leaflet";
 import { useMap } from "react-leaflet/hooks";
 import RoutingMachine from "./RoutineMachine";
 import { latLngBounds } from "leaflet";
@@ -58,6 +64,13 @@ export default function Map(props) {
         </Popup>
       </Marker>
       <MultipleMarkers />
+      <Polyline
+        pathOptions={{ color: "red" }}
+        positions={[
+          [props.source[0], props.source[1]],
+          [props.destination[0], props.destination[1]],
+        ]}
+      />
     </MapContainer>
   );
 }

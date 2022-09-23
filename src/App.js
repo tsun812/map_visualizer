@@ -11,10 +11,11 @@ function App() {
   const { state, setLatLon } = useAppState();
   const [locList, setLocList] = useState(null);
   const [selectList, setSelectList] = useState([]);
-  console.log(state.lat);
+  console.log(selectList);
+  console.log(state.lat); 
   return (
     <div className="App">
-      <SearchBar />
+      <DistanceCalculator selectList={selectList} />
       <SearchBar passChildData={setLocList}/>
       <LocationList locList={locList} setSelectList={setSelectList} selectList={selectList}/>
       <Map lat={state.lat} long={state.long} />

@@ -8,9 +8,7 @@ function LocationList(props) {
         if (selectList.length == 2) {
             return;
         }
-        const newList = selectList;
-        newList?.push(location);
-        props.setSelectList(newList);
+        props.setSelectList(selectList => [...selectList, location]);
     }
     return(
         <div className='locationList'>

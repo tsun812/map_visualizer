@@ -8,16 +8,30 @@ import LocationList from "./LocationList";
 import DistanceCalculator from "./DistanceCalculator";
 
 function App() {
-  const { state, setLatLon } = useAppState();
+  const { state, setLatLon, setSource, setDestination } = useAppState();
   const [locList, setLocList] = useState(null);
   const [selectList, setSelectList] = useState([]);
-  console.log(state.lat); 
+  console.log(state.lat);
   return (
     <div className="App">
-      <DistanceCalculator selectList={selectList} setSelectList={setSelectList}/>
-      <SearchBar passChildData={setLocList}/>
-      <LocationList locList={locList} setSelectList={setSelectList} selectList={selectList}/>
-      <Map lat={state.lat} long={state.long} />
+      <DistanceCalculator
+        selectList={selectList}
+        setSelectList={setSelectList}
+        setSource={setSource}
+        setDestination={setDestination}
+      />
+      <SearchBar passChildData={setLocList} />
+      <LocationList
+        locList={locList}
+        setSelectList={setSelectList}
+        selectList={selectList}
+      />
+      <Map
+        lat={state.lat}
+        long={state.long}
+        source={state.source}
+        destination={state.destination}
+      />
     </div>
   );
 }

@@ -4,8 +4,8 @@ export default function useAppState() {
   const [state, setState] = useState({
     lat: 0,
     long: 0,
-    source: [0, 0],
-    destination: [0.0],
+    source: null,
+    destination: null,
   });
   const setLatLon = (lat, long) => {
     setState((prev) => ({

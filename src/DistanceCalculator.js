@@ -3,17 +3,20 @@ import React, { useEffect, useState } from "react";
 import "./DistanceCalculator.css";
 import trashImg from "./trash.svg";
 function DistanceCalculator(props) {
-  const { selectList } = props;
+  const { selectList, setSource, setDestination } = props;
 
   const [distance, setDistance] = useState(null);
 
   useEffect(() => {
     calculateDistance();
-    // props.setSource(selectList[0].properties.lat, selectList[0].properties.lon);
-    // props.setDestination(
-    //   selectList[1].properties.lat,
-    //   selectList[1].properties.lon
-    // );
+    console.log(selectList);
+    if (selectList[0] && selectList[1]) {
+      setSource(selectList[0].properties.lat, selectList[0].properties.lon);
+      setDestination(
+        selectList[1].properties.lat,
+        selectList[1].properties.lon
+      );
+    }
   }, [selectList]);
 
   function calculateDistance(event) {

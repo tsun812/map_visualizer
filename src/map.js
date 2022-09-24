@@ -1,16 +1,47 @@
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import {
+  MapContainer,
+  Marker,
+  Popup,
+  TileLayer,
+  Polyline,
+} from "react-leaflet";
 import { useMap } from "react-leaflet/hooks";
+import RoutingMachine from "./RoutineMachine";
+import { latLngBounds } from "leaflet";
 
 import './map.css';
+
+let arrCoordinates = [];
 function MyComponent(props) {
   const map = useMap();
   console.log("map center:", map.getCenter());
   map.flyTo([props.lat, props.long], 13, {
     animate: false,
   });
+  if (props.source) {
+    arrCoordinates = [
+      [props.source[0], props.source[1]],
+      [props.destination[0], props.destination[1]],
+    ];
+    map.flyToBounds(
+      [
+        [props.source[0], props.source[1]],
+        [props.destination[0], props.destination[1]],
+      ],
+      {
+        animate: false,
+      }
+    );
+  }
   return null;
 }
+function MultipleMarkers() {
+  return arrCoordinates.map((coordinata, index) => {
+    return <Marker key={index} position={coordinata}></Marker>;
+  });
+}
 export default function Map(props) {
+  console.log("here", props.source);
   return (
     <div className="mapWrapper">
       <MapContainer
@@ -19,7 +50,12 @@ export default function Map(props) {
       zoom={13}
       scrollWheelZoom={false}
     >
-      <MyComponent lat={props.lat} long={props.long} />
+      <MyComponent
+        lat={props.lat}
+        long={props.long}
+        source={props.source}
+        destination={props.destination}
+      />
 
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -30,6 +66,14 @@ export default function Map(props) {
           A pretty CSS3 popup. <br /> Easily customizable.
         </Popup>
       </Marker>
+      <MultipleMarkers />
+      <Polyline
+        pathOptions={{ color: "red" }}
+        positions={[
+          [props.source[0], props.source[1]],
+          [props.destination[0], props.destination[1]],
+        ]}
+      />
     </MapContainer>
     </div>
   );

@@ -1,0 +1,10 @@
+.mapWrapper{
+    display: flex;
+    flex-direction: column;
+}
+.mapContainer {
+    position:absolute;
+    height: calc(100% - 48px - 120px);
+    width: 100%;
+    z-index: -1;
+}

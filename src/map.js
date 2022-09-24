@@ -64,13 +64,15 @@ export default function Map(props) {
         </Popup>
       </Marker>
       <MultipleMarkers />
-      <Polyline
-        pathOptions={{ color: "red" }}
-        positions={[
-          [props.source[0], props.source[1]],
-          [props.destination[0], props.destination[1]],
-        ]}
-      />
+      {props.source && (
+        <Polyline
+          pathOptions={{ color: "red" }}
+          positions={[
+            [props.source[0], props.source[1]],
+            [props.destination[0], props.destination[1]],
+          ]}
+        />
+      )}
     </MapContainer>
   );
 }

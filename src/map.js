@@ -9,6 +9,8 @@ import { useMap } from "react-leaflet/hooks";
 import RoutingMachine from "./RoutineMachine";
 import { latLngBounds } from "leaflet";
 
+import './map.css';
+
 let arrCoordinates = [];
 function MyComponent(props) {
   const map = useMap();
@@ -41,8 +43,9 @@ function MultipleMarkers() {
 export default function Map(props) {
   console.log("here", props.source);
   return (
-    <MapContainer
-      style={{ height: "200px", width: "500px" }}
+    <div className="mapWrapper">
+      <MapContainer
+      className="mapContainer"
       center={[props.lat, props.long]}
       zoom={13}
       scrollWheelZoom={false}
@@ -74,5 +77,6 @@ export default function Map(props) {
         />
       )}
     </MapContainer>
+    </div>
   );
 }

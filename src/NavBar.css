@@ -6,7 +6,6 @@
     color: white;
     height: 48px;
     width: 100%;
-    padding: 0 40px;
 }
 
 .title {
@@ -17,4 +16,5 @@
 
 .logo {
     transform: translate(0, -3px);
+    margin-left: 40px;
 }

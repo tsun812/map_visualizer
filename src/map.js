@@ -1,6 +1,7 @@
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import { useMap } from "react-leaflet/hooks";
 
+import './map.css';
 function MyComponent(props) {
   const map = useMap();
   console.log("map center:", map.getCenter());
@@ -11,8 +12,9 @@ function MyComponent(props) {
 }
 export default function Map(props) {
   return (
-    <MapContainer
-      style={{ height: "200px", width: "500px" }}
+    <div className="mapWrapper">
+      <MapContainer
+      className="mapContainer"
       center={[props.lat, props.long]}
       zoom={13}
       scrollWheelZoom={false}
@@ -29,5 +31,6 @@ export default function Map(props) {
         </Popup>
       </Marker>
     </MapContainer>
+    </div>
   );
 }

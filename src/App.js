@@ -4,7 +4,6 @@ import SearchBar from "./SearchBar";
 import useAppState from "./useAppState";
 import Map from "./map";
 import React, { useState } from "react";
-import LocationList from "./LocationList";
 import DistanceCalculator from "./DistanceCalculator";
 
 function App() {
@@ -15,8 +14,8 @@ function App() {
   return (
     <div className="App">
       <DistanceCalculator selectList={selectList} setSelectList={setSelectList}/>
-      <SearchBar passChildData={setLocList}/>
-      <LocationList locList={locList} setSelectList={setSelectList} selectList={selectList}/>
+      <SearchBar passChildData={setLocList} locList={locList} setSelectList={setSelectList} selectList={selectList}/>
+      {/* <LocationList locList={locList} setSelectList={setSelectList} selectList={selectList}/> */}
       <Map lat={state.lat} long={state.long} />
     </div>
   );
